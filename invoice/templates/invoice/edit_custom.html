@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'common/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'invoice/common.css' %}" />
+    <link rel="stylesheet" media="screen and (max-width: 600px)" href="{% static 'invoice/edit_mobile.css' %}" />
+    <link rel="stylesheet" media="screen and (min-width: 600px)" href="{% static 'invoice/edit.css' %}" />
+    <script type="text/javascript" src="{% static 'common/jquery-3.1.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'invoice/QuantityBox.js' %}"></script>
+    <script type="text/javascript" src="{% static 'invoice/main.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(apple.edit.custom.onready);
+    </script>
+</head>
+<body>
+    <header><span id="header_text">蘋果傢俬</span><a id="home" href="/invoice">主頁</a></header>
+    <div class="main-container" id="search_container">
+        <div id="invoice">
+            <div id="invoice_status_bar" style="background: #272b34;color: white;">訂造</div>
+            <nav id="invoice_detail_container" class="detail">
+                <div id="invoice_input_container">
+                    <div id="first_name_container"><input form="form" id="first_name" type="text" value="{{ invoice.first_name }}" name="firstName"/><span class="invoice_id">#{{ invoice.invoice_id }}</span></div>
+                    <div id="invoice_detail_inner_container">
+                        <p><span>地址: </span><input form="form" type="text" value="{{ invoice.address }}" name="address"/></p>
+                        <p><span>電話1: </span><input form="form" type="text" value="{{ invoice.contact_number }}" name="contactNum"/></p>
+                        <p><span>電話2: </span><input form="form" type="text" value="{{ invoice.home_number }}" name="homeNum"/></p>
+                    </div>
+                </div>
+            </nav>
+            <p style="padding: 5px;border-bottom:1px solid lightgray;">貨品表列: </p>
+            <div id="product_cell_container">
+                {% if products %}
+                    {% for product in products %}
+                      <div class="product_cell">
+                          <p id="name_tag"><span id="serial_tag">{{ product.name }}</span></p>
+                          <p id="color_tag">{{ product.color }}</p>
+                          <p id="side_note_tag">{{ product.side_note }}</p>
+                          <p class="quantity">$<span id="price_tag">{{ product.price }}</span> X <span id="quantity_tag">{{ product.quantity }}</span></p>
+                          <a href="javascript: void(0)" class="product_cancel_button"/></a>
+                      </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div id="add_button_container">
+                <a href="#add_product" class="add_button" id="custom_add_button"></a>
+            </div>
+            <div style="padding: 10px;display: flex;flex-flow: column;border-top: 1px solid #dddddd;">
+                <div id="edit_price_container">
+                    <p><span>總值: </span><input id="total_amount" form="form" type="number" value="{{ invoice.total_amount }}" name="price" min="0"/></p>
+                    <p><span>訂金: </span><input form="form" type="number" value="{{ invoice.deposit }}" name="deposit" min="0"/></p>
+                    <p><span>回贈: </span><input id="discount" form="form" type="number" value="{{ invoice.discount }}" name="discount" min="0"/></p>
+                </div>
+                <select name="payment_type" form="form" style="margin: 10px 0;">
+                    {% if invoice.payment_type == 'V' %}
+                    <option value="C">現金</option>
+                    <option value="V" selected>Visa</option>
+                    <option value="E">EPS</option>
+                    {% elif invoice.payment_type == 'C' %}
+                    <option value="C" selected>現金</option>
+                    <option value="V">Visa</option>
+                    <option value="E">EPS</option>
+                    {% elif invoice.payment_type == 'E' %}
+                    <option value="C">現金</option>
+                    <option value="V">Visa</option>
+                    <option value="E" selected>EPS</option>
+                    {% endif %}
+                </select>
+                <textarea name="additional_note" form="form" placeholder="備註...">{{ invoice.additional_note }}</textarea>
+            </div>
+        </div>
+        <form id="form" method="post">
+            {% csrf_token %}
+            <input id="edit_confirm" style="float: right;margin: 10px 0;" type="submit" value="確定">
+        </form>
+    </div>
+    <div class="backdrop" id="custom_backdrop">
+        <div id="quantity_selection_box">
+            <div id="quantity_selection_box_info_container">
+                <p><span>貨品: </span><input id="custom_name" type="text"/></p>
+                <div id="custom_size_container">
+                    <span>尺寸: </span>
+                    <div>
+                      <div class="input-group">
+                        <input class="form-control" id="custom_size_1" type="number"/>
+                        <span class="input-group-addon">"闊</span>
+                      </div>
+                      <span> * </span>
+                      <div class="input-group">
+                        <input class="form-control" id="custom_size_2" type="number"/>
+                        <span class="input-group-addon">"深</span>
+                      </div>
+                      <span> * </span>
+                      <div class="input-group">
+                        <input class="form-control" id="custom_size_3" type="number"/>
+                        <span class="input-group-addon">"高</span>
+                      </div>
+                    </div>
+                </div>
+                <p><span>價錢: </span><input id="custom_price" type="number" value="1" min="0"/></p>
+                <p><span>數量: </span><input id="custom_quantity" type="number" value="1" min="0"/></p>
+                <p><span>追加: </span><textarea id="custom_side-note" cols="40" rows="5"></textarea></p>
+                <p><span>顔色: </span><input id="custom_color" type="text"/></p>
+            </div>
+            <div class="box_button_container" id="quantity_selection_box_button_container">
+                <a class="quantity_box_button" id="custom-cancel-button" href="javascript: window.history.back();">取消</a>
+                <a class="quantity_box_button confirm" id="custom-confirm-button" href="javascript: void(0);">確定</a>
+            </div>
+        </div>
+    </div>
+    <div id="alert" class="modal fade">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">錯誤</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'common/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

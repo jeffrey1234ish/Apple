@@ -1,0 +1,120 @@
+@media (max-width:767px) {
+  #main-body > .row {
+    padding: 0 !important;
+  }
+  #main-body > .row > [class*='col-'] {
+    margin-bottom: 10px;
+    padding: 0 10px;
+  }
+}
+@media (min-width:768px) {
+  #main-body > .row {
+    padding: 0 10px;
+  }
+}
+a, a:hover, a:focus {
+  color: #cc3b3b;
+}
+h2, h4 {
+  margin: 0;
+}
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+ul.color-list {
+  padding-left: 0;
+  padding: 10px 0 0;
+}
+ul.color-list > div {
+  list-style: none;
+  display: inline-block;
+  margin: 5px 0;
+}
+ul.color-list > div > li {
+  margin: 0px auto;
+
+  width: 50px;
+  height: 50px;
+  background-size: 100% 100%;
+  border-radius: 50px;
+  background: white;
+  border: 3px solid white;
+
+  opacity: 0.4;
+
+  box-shadow: 0px 1px 5px rgba(0,0,0,.4);
+
+  -webkit-transition: all .33s;
+  -moz-transition: all .33s;
+	transition: all .33s;
+}
+ul.color-list > div > li:hover {
+  transform: translateY(-5px);
+  -webkit-transform: translateY(-5px);
+  -moz-transform: translateY(-5px);
+}
+ul.color-list > div > li.active {
+  opacity: 1.0;
+}
+ul.color-list > div > li > a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+li#Wooden_Black {
+  background-image: url("../images/sickban/dark_oak.jpg");
+}
+li#Wooden_White {
+  background-image: url("../images/sickban/wooden_white.jpg");
+}
+li#Red_Cherry {
+  background-image: url("../images/sickban/cherry.jpg");
+}
+li#Maple {
+  background-image: url("../images/sickban/maple.jpg");
+}
+li#Oak {
+  background-image: url("../images/sickban/oak.jpg");
+}
+li#Light_Walnut {
+  background-image: url("../images/sickban/walnut.jpg");
+}
+.content-card {
+  padding: 10px;
+  border: 1px solid #dddddd;
+  box-shadow: 0px 1px 1x rgba(0,0,0,.3);
+  -webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.3);
+  -moz-box-shadow: 0px 1px 1px rgba(0,0,0,.3);
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+.content-info-card {
+  padding: 15px 15px 50px;
+}
+.content-info-container {
+}
+.content-info-container > h4, .content-info-container > h2 {
+  margin-bottom: 10px;
+}
+.social-buttons {
+  display: flex;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.social-buttons > a {
+  display: block;
+  flex: 1 1 auto;
+  height: 100%;
+}
+a.facebook {
+  background-image: url("../images/facebook.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-color: #3c5a99;
+}

@@ -1,0 +1,203 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-19 16:34+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Apple/settings.py:134
+msgid "Tranditional Chinese"
+msgstr ""
+
+#: Apple/settings.py:135
+msgid "Japanese"
+msgstr ""
+
+#: Apple/settings.py:136
+msgid "English"
+msgstr ""
+
+#: invoice/templates/apple/apple.html:10 invoice/templates/apple/custom.html:10
+#: invoice/templates/apple/index.html:10
+#: invoice/templates/apple/product_category.html:10
+#: invoice/templates/apple/product_detail.html:10
+msgid "蘋果傢俬"
+msgstr "Apple Furniture"
+
+#: invoice/templates/apple/apple.html:56 invoice/templates/apple/index.html:76
+msgid "紅蘋果"
+msgstr "Red Apple"
+
+#: invoice/templates/apple/apple.html:57 invoice/templates/apple/index.html:77
+#: invoice/templates/apple/index.html:293
+msgid "睡房系列"
+msgstr "Bedroom"
+
+#: invoice/templates/apple/apple.html:58 invoice/templates/apple/index.html:78
+#: invoice/templates/apple/index.html:328
+msgid "衣櫃"
+msgstr "Wardrobe"
+
+#: invoice/templates/apple/apple.html:59 invoice/templates/apple/index.html:79
+msgid "地櫃"
+msgstr "TV cabinet"
+
+#: invoice/templates/apple/apple.html:60 invoice/templates/apple/index.html:80
+#: invoice/templates/apple/index.html:316
+#: invoice/templates/apple/index.html:340
+msgid "鞋櫃"
+msgstr "Shoe canbinet"
+
+#: invoice/templates/apple/custom.html:54
+#: invoice/templates/apple/product_category.html:56
+#: invoice/templates/apple/product_detail.html:52
+msgid "主頁"
+msgstr "Home"
+
+#: invoice/templates/apple/custom.html:68
+msgid ""
+"蘋果傢俬為客人度身訂造傢俬，務求為您帶來一個舒適的家。如有需要，可向職員查詢"
+msgstr ""
+"We provide you with furniture tailormade services, creating a perfect home "
+"just for you.　Contact us to learn more..."
+
+#: invoice/templates/apple/custom.html:69
+#: invoice/templates/apple/product_detail.html:91
+msgid "聯絡我們"
+msgstr "Contact Us"
+
+#: invoice/templates/apple/custom.html:92
+msgid "Copyright © MyWebsite. All rights reserved."
+msgstr ""
+
+#: invoice/templates/apple/index.html:106
+msgid ""
+"位於<a href='#map' class='scroll_page' style='margin: 0 5px;padding: 0 5px;"
+"background: white;border-radius: 10px;'>荃灣街市街</a> 蘋果傢俬已出售紅蘋果傢"
+"俬產品超過16年."
+msgstr ""
+"Located at <a href='#map' class='scroll_page' style='margin: 0 5px;padding: "
+"0 5px;background: white;border-radius: 10px;'>Tsuen Wan Market Street</a>, "
+"Apple Furniture has been selling furnitures made by Red Apple for more than "
+"16 years."
+
+#: invoice/templates/apple/index.html:247
+msgid "了解更多・・・"
+msgstr "Know more about us..."
+
+#: invoice/templates/apple/index.html:260
+msgid ""
+"蘋果傢俬提供傢俬訂造服務，包括上門度尺，傢俬設計，務求為顧客度身訂製一個舒適"
+"的家"
+msgstr ""
+"We provide you with furniture tailormade services, creating a perfect home just for you."
+
+#: invoice/templates/apple/index.html:271
+msgid "田園系列"
+msgstr "Garden Series"
+
+#: invoice/templates/apple/index.html:282
+msgid "書房系列"
+msgstr "Study room"
+
+#: invoice/templates/apple/index.html:304
+msgid "客廳系列"
+msgstr "Dinning room"
+
+#: invoice/templates/apple/index.html:350
+msgid "更多..."
+msgstr "More..."
+
+#: invoice/templates/apple/index.html:359
+msgid "營業時間"
+msgstr "Business hours"
+
+#: invoice/templates/apple/index.html:360
+msgid "星期一至星期日"
+msgstr "Monday to Sunday"
+
+#: invoice/templates/apple/index.html:368
+msgid "名稱"
+msgstr "Name"
+
+#: invoice/templates/apple/index.html:369
+msgid "電郵地址"
+msgstr "Email address"
+
+#: invoice/templates/apple/index.html:371
+msgid "電話"
+msgstr "Telephone"
+
+#: invoice/templates/apple/index.html:372
+#, fuzzy
+#| msgid "主頁"
+msgid "主題"
+msgstr "Home"
+
+#: invoice/templates/apple/index.html:386
+msgid "讚好"
+msgstr "likes"
+
+#: invoice/templates/apple/index.html:391
+msgid "希望能帶給您們驚喜!"
+msgstr "Hope we bring you suprises"
+
+#: invoice/templates/apple/index.html:410
+msgid "歡迎whatsapp查詢"
+msgstr "Ask us questions on whatsapp"
+
+#: invoice/templates/apple/index.html:451
+msgid "語言"
+msgstr "Languages"
+
+#: invoice/templates/apple/product_detail.html:74
+msgid "尺寸"
+msgstr "Dimension"
+
+#: invoice/templates/apple/product_detail.html:74
+msgid "吋闊"
+msgstr "inches wide"
+
+#: invoice/templates/apple/product_detail.html:74
+msgid "吋深"
+msgstr "inches deep"
+
+#: invoice/templates/apple/product_detail.html:74
+msgid "吋高"
+msgstr "inches tall"
+
+#: invoice/templates/apple/product_detail.html:76
+msgid "顏色"
+msgstr "Colour"
+
+#: invoice/templates/apple/product_detail.html:91
+msgid "價錢"
+msgstr "Price"
+
+#: invoice/templates/apple/product_detail.html:92
+msgid "送貨時間"
+msgstr "Estimate delivery time"
+
+#: invoice/templates/apple/product_detail.html:92
+msgid "兩星期內"
+msgstr "Within two weeks"
+
+#: invoice/templates/apple/product_detail.html:100
+msgid "其他貨品"
+msgstr "Other products"
+
+#: invoice/templates/apple/product_detail.html:134
+msgid "Copyright ©  2017 Apple Furniture. All rights reserved."
+msgstr ""

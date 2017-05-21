@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'invoice/common.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'invoice/check.css' %}" />
+      <script type="text/javascript" src="{% static 'common/jquery-3.1.1.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'invoice/main.js' %}"></script>
+      <script>
+          $(document).ready(apple.check.onload);
+      </script>
+  </head>
+  <body>
+    <header><span id="header_text">蘋果傢俬</span><a id="home" href="/invoice">主頁</a></header>
+    <div class="main-container">
+        {% if created == False %}
+            <p id="invoice_left">{{ invoices.count }}張訂單未被核對</p>
+            <ul>
+                <li class="clickable"></li>
+            {% for invoice in invoices %}
+                <a href="{% url 'invoice:search' %}?search={{ invoice.invoice_id }}" style="text-decoration: none; color: black;display: block;">
+                    <li class="invoice_detail_container">
+                        <div id="first_name_container"><span id="first_name">{{ invoice.first_name }}</span><span class="invoice_id">#{{ invoice.invoice_id }}</span></div>
+                    </li>
+                </a>
+            {% endfor %}
+            </ul>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="method" value="create" />
+                <a href="#" class="menu-button" onclick="$(this).closest('form').submit()">製作對單紙</a>
+            </form>
+        {% else %}
+            <p id="waiting_invoice">{{ invoices.count }}張訂單等待被核對</p>
+            <ul>
+                <li class="clickable"></li>
+                {% for invoice in invoices %}
+                    <a href="{% url 'invoice:search' %}?search={{ invoice.invoice_id }}" style="text-decoration: none; color: black;display: block;">
+                        <li class="invoice_detail_container">
+                            <div id="first_name_container"><span id="first_name">{{ invoice.first_name }}</span><span class="invoice_id">#{{ invoice.invoice_id }}</span></div>
+                        </li>
+                    </a>
+                {% endfor %}
+            </ul>
+            <a href="{% url "invoice:print_check" %}" class="menu-button" onclick="$(this).closest('form').submit()">列印對單紙</a>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="method" value="confirm" />
+                <a id="confirm" href="#" class="menu-button" onclick="$(this).closest('form').submit()">確認</a>
+            </form>
+        {% endif %}
+    </div>
+  </body>
+</html>

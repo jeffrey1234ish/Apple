@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title></title>
+    {% load static %}
+    <script type="text/javascript" src="{% static 'common/jquery-3.1.1.min.js' %}"></script>
+    <!-- <script type="text/javascript">
+        var Product = function(n, s, p) {
+            this.name = n;
+            this.serial_number = s;
+            this.price = p;
+        }
+        var products = [];
+        {% for product in products %}products.push(new Product('{{ product.name }}', '{{ product.serial_number }}', {{ product.price }}));{% endfor %}
+    </script> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'invoice/common.css' %}" />
+    <link rel="stylesheet" media="screen and (max-width: 480px)" href="{% static 'invoice/furniture_mobile.css' %}" />
+    <link rel="stylesheet" media="screen and (min-width: 480px)" href="{% static 'invoice/furniture.css' %}" />
+    <script type="text/javascript" src="{% static 'invoice/QuantityBox.js' %}"></script>
+    <script type="text/javascript" src="{% static 'invoice/main.js' %}"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        apple.furniture.onload();
+      });
+    </script>
+</head>
+<body>
+    <header><span id="header_text">蘋果傢俬</span><a id="home" href="/invoice">主頁</a></header>
+    <div class="main-container">
+        {% if has_product %}
+          <p style="padding: 10px; font-size: 30px;margin: 20px 0;">此訂單已下單</p>
+        {% endif %}
+        <nav id="invoice_detail_container">
+            <div id="first_name_container"><span id="first_name">{{ invoice.first_name }}</span><span class="invoice_id">#{{ invoice.invoice_id }}</span></div>
+            <div id="invoice_detail_inner_container">
+                <p>地址: {{ invoice.address }}</p>
+                <p>電話: {{ invoice.contact_number }}</p>
+            </div>
+            <div id="cart_products_container">
+
+            </div>
+            <div style="padding: 10px">
+             <textarea name="additional_note" form="form" placeholder="備註..."></textarea>
+                <div id="edit_price_container">
+                    <p>總值: <input form="form" type="number" id="total_amount" class="price-tag" value="0" name="price"/>
+                    <p style="margin-top: 10px;">訂金: <input form="form" type="number" class="price-tag" value="0" name="deposite"/>
+                </div>
+            </div>
+        </nav>
+        <div>
+            <input type="text" placeholder="傢俬編號" id="search_string_text_box" /><input type="submit" value="搜尋" id="submit_search_button"/>
+        </div>
+        <form method="post" id="form">
+            {% csrf_token %}
+            <div id="product_container">
+            </div>
+            <input style="float: right; margin: 15px 0;" type="submit" value="開單" />
+        </form>
+
+    </div>
+    <div id="backdrop">
+        <div id="quantity_selection_box">
+            <div id="quantity_selection_box_info_container">
+                <p>名稱: <span id="name_box_tag"></span></p>
+                <p>編號: <span id="serial_box_tag"></span></p>
+                <p>價錢: <span id="price_box_tag"></span></p>
+                <p>數量: <input id="quantity_box_input" type="number" value="1" min="0"/></p>
+                <span style="display: block;float: left;margin: 0 10px 0 5px;">追加: </span><textarea id="side-note" cols="40" rows="5"></textarea>
+            </div>
+            <div id="quantity_selection_box_button_container">
+                <a class="quantity_box_button" id="cancel-button" href="javascript: void(0);">取消</a>
+                <a class="quantity_box_button confirm" id="confirm-button" href="javascript: void(0);">確定</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

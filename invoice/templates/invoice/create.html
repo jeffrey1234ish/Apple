@@ -1,0 +1,130 @@
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      {% load static %}
+      <link rel="stylesheet" type="text/css" href="{% static 'invoice/common.css' %}" />
+
+      <script type="text/javascript" src="{% static 'common/jquery-3.1.1.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'invoice/main.js' %}"></script>
+      <script type="text/javascript">
+          $(document).ready(apple.create.onready);
+      </script>
+    <style>
+      input[type="text"], input[type="tel"], select {
+          display: inline;
+          width: 100%;
+          position: relative;
+
+          border-radius: 5px;
+          border: 1px solid #aaaaaa;
+
+          font-size: 25px;
+      }
+      .field_container input {
+        padding: 10px;
+      }
+      .custom_made_checkbox_container {
+        width: 40px;
+        position: relative;
+        margin: 10px;
+      }
+      input[type=checkbox] {
+        visibility: hidden;
+      }
+      span, input {
+          font-size: 20px;
+      }
+      input[type=checkbox] ~ label {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #000222; /* Old browsers */
+        background: -moz-linear-gradient(top, #000222 0%, #45484d 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #000222 0%,#45484d 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #000222 0%,#45484d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000222', endColorstr='#45484d',GradientType=0 ); /* IE6-9 */
+        border-radius: 4px;
+        box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+      }
+      input[type=checkbox] ~ label:after {
+        content: '';
+        width: 18px;
+        height: 10px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        border: 3px solid #fcfff4;
+        border-top: none;
+        border-right: none;
+        background: transparent;
+        opacity: 0;
+        transform: rotate(-45deg);
+      }
+      input[type=checkbox]:checked ~ label:after {
+        opacity: 1;
+      }
+      .field_container {
+        margin: 10px 0;
+        display: flex;
+      }
+      .field_container span {
+        flex: 0 0 auto;
+
+        border-radius: 5px 0 0 5px;
+        padding: 20px;
+        background: #3c465a;
+        color: white;
+      }
+
+      .flex-column span {
+        flex: 0 0 auto;
+      }
+      .flex-column {
+        flex-flow: column;
+      }
+    </style>
+  </head>
+  <body>
+    <header><span id="header_text" style="font-size: 40px;">蘋果傢俬</span><a id="home" href="/invoice">主頁</a></header>
+    <div class="main-container" >
+      <form action="{% url 'invoice:create' %}" method="post">
+        {% csrf_token %}
+      <div class="field_container">
+        <input class="input_field" type="text" name="first_name" placeholder="姓氏..." required><br/>
+      </div>
+      <div class="field_container">
+        <select id="region_select">
+            <option value="" selected>請選擇地區...</option>
+        </select>
+      </div>
+      <div class="field_container">
+        <input class="input_field" type="text" name="address" placeholder="地址..." required><br/>
+      </div>
+      <div class="field_container">
+        <input class="input_field" type="tel" name="contact_number" placeholder="電話1..." pattern="^\d{8}$" required><br/>
+      </div>
+      <div class="field_container">
+        <input class="input_field" type="tel" name="home_number" placeholder="電話2..." pattern="^\d{8}$"><br/>
+      </div>
+      <div class="field_container custom_made_container">
+        <span>訂造: </span>
+        <div style="background: white;width: 100%;border-radius: 0 5px 5px 0;">
+          <div class="custom_made_checkbox_container">
+            <input id="checkbox" type="checkbox" name="custom" value="yes" />
+            <label for="checkbox"></label>
+          </div>
+        </div>
+      </div>
+          <input class="submit" type="submit" value="下一步>>"/>
+      </form>
+    </div>
+    <script type="text/javascript">
+      apple.create.onload();
+    </script>
+  </body>
+</html>

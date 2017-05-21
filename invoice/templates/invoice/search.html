@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      {% load static %}
+      <link rel="stylesheet" type="text/css" href="{% static 'invoice/common.css' %}" />
+      <link rel="stylesheet" media="screen and (max-width: 480px)" href="{% static 'invoice/search_mobile.css' %}" />
+      <link rel="stylesheet" media="screen and (min-width: 480px)" href="{% static 'invoice/search.css' %}" />
+      <script type="text/javascript" src="{% static 'common/jquery-3.1.1.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'common/drawingboard.nocontrol.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'invoice/main.js' %}"></script>
+      <script type="text/javascript">
+          $(document).ready(apple.search.onready);
+      </script>
+  </head>
+  <body>
+    <header><span id="header_text">蘋果傢俬</span><a id="home" href="/invoice">主頁</a></header>
+    <div class="main-container" id="search_container">
+        {% if not invoice %}
+            <form method="get" style="position: relative">
+                {% csrf_token %}
+                <select name="cat" style="font-size:15px;position: absolute;width: 60px;height: 100%;border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                    <option value="invoice_id">訂單</option>
+                    <option value="number">電話</option>
+                    <option value="address">地址</option>
+                    <option value="name">姓氏</option>
+                </select>
+                <input id="search_field" type="text" name="search" style="padding: 5px;margin-left: 60px;border-top-left-radius: 0;border-bottom-left-radius: 0;border-left: none;" placeholder="...">
+                <input style="float: right;" type="submit" value="查詢">
+            </form>
+        {% endif %}
+        {% if last_invoices %}
+            <div style="clear: both">
+                <p style="margin-top: 10px; font-size: 30px;">最新訂單:</p>
+                <ul class="invoice_list">
+                {% for invoice in last_invoices %}
+                  <a href="{% url 'invoice:search' %}{{ invoice.invoice_id }}">
+                    <li id="invoice_detail_container">
+                        <div id="first_name_container"><span id="first_name">{{ invoice.first_name }}</span><span class="invoice_id">#{{ invoice.invoice_id }}</span></div>
+                        <div id="invoice_detail_inner_container">
+                            <p>地址: {{ invoice.address }}</p>
+                            <p>電話: {{ invoice.contact_number }}</p>
+                        </div>
+                    </li>
+                  </a>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+      {% if invoices %}
+          <div style="clear: both">
+              <p style="margin-top: 10px; font-size: 30px;">搜索结果:</p>
+              <ul class="invoice_list">
+                  {% for invoice in invoices %}
+                  <a href="{% url 'invoice:search' %}{{ invoice.invoice_id }}">
+                    <li id="invoice_detail_container">
+                        <div id="first_name_container"><span id="first_name">{{ invoice.first_name }}</span><span class="invoice_id">#{{ invoice.invoice_id }}</span></div>
+                        <div id="invoice_detail_inner_container">
+                            <p>地址: {{ invoice.address }}</p>
+                            <p>電話: {{ invoice.contact_number }}</p>
+                        </div>
+                    </li>
+                  </a>
+                  {% endfor %}
+              </ul>
+              <div>
+                <ul id='page_number_list'>
+                  {% for page in pages %}
+                  <li>
+                    {% if page == current_page %}
+                      <span>{{ page|add:"1" }}</span>
+                    {% else %}
+                      <a href="{% url 'invoice:search' %}?search={{ str }}&cat={{ cat }}&p={{ page|add:"1" }}">{{ page|add:"1" }}</a>
+                    {% endif %}
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+          </div>
+      {% endif %}
+      {% if invoice %}
+        <div id="invoice">
+            {% if invoice.status == 'D' %}
+                <div id="invoice_status_bar" class="deleted">
+                    <p>已刪除</p>
+                </div>
+            {% elif invoice.status == 'U' %}
+                <div id="invoice_status_bar" class="uncompleted">
+                    <p>未完成</p>
+                </div>
+            {% elif invoice.status == 'C' %}
+                <div id="invoice_status_bar" class="completed">
+                    <p>已完成</p>
+                </div>
+            {% elif invoice.status == 'W' %}
+                <div id="invoice_status_bar" class="waiting">
+                    <p>等待確認</p>
+                </div>
+            {% endif %}
+
+            <nav id="invoice_detail_container" class="detail">
+                <div id="first_name_container">
+                    <span id="first_name">{{ invoice.first_name }}</span>
+                    <span class="invoice_id"><label id="star"></label>#<label id="invoice_id">{{ invoice.invoice_id }}</label></span>
+                </div>
+                <div id="invoice_detail_inner_container">
+                    <p>地址: <span id="address">{{ invoice.address }}</span></p>
+                    <p>電話1: <a style="color: blue" href="tel:{{ invoice.contact_number }}">{{ invoice.contact_number }}</a></p>
+                    <p>電話2: <a style="color: blue" href="tel:{{ invoice.home_number}}">{{ invoice.home_number }}</a></p>
+                    {% if invoice.payment_type == 'V' %}
+                    <p>付款方式: Visa</p>
+                    {% elif invoice.payment_type == 'C' %}
+                    <p>付款方式: 現金</p>
+                    {% elif invoice.payment_type == 'E' %}
+                    <p>付款方式: EPS</p>
+                    {% endif %}
+                    <p>開單時間: {{ invoice.first_created }}</p>
+                    <p>最後更改: {{ invoice.last_update }}</p>
+                </div>
+                {% if invoice.status != 'D' %}
+                    <div id="invoice_button_container">
+                        <a href="/invoice/edit/{{ invoice.invoice_id }}" id="edit_button"></a>
+                        <a href="javascript:;" id="draw_button"></a>
+                        <a href="{% url 'invoice:print' %}?invoice={{ invoice.invoice_id }}" id="print_button"></a>
+                        <a href="{% url 'invoice:delete' %}?invoice={{ invoice.invoice_id }}" class="right_button" id="delete_button"></a>
+                        {% if invoice.status == 'U' %}
+                            <a href="{% url 'invoice:confirm' %}?invoice={{ invoice.invoice_id }}" class="right_button" id="complete_button"></a>
+                        {% elif invoice.status == 'C' %}
+
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </nav>
+            {% if invoice.is_custom_made == True %}
+                <p class="is_custom_made_indicator" id="custom_made">訂造</p>
+            {% elif invoice.is_custom_made == False %}
+                <p class="is_custom_made_indicator">現成</p>
+            {% endif %}
+            <div id="product_cell_container">
+                <table>
+                    <tr>
+                        <th>编號</th>
+                        <th>描述</th>
+                        <th>顔色</th>
+                        <th>追加</th>
+                        <th>價錢</th>
+                    </tr>
+                    {% if products %}
+                        {% for product in products %}
+                        <tr class="product_cell">
+                            <td id="name_tag">{{ product.product.serial_number }}</td>
+                            <td>{{ product.product.description }}</td>
+                            <td id="color_tag">{{ product.get_color_display }}</td>
+                            <td id="side_note_tag">{{ product.side_note }}</td>
+                            <td id="quantity_tag">${{ product.product.price }} X {{ product.quantity }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+                    {% if custom_products %}
+                        {% for product in custom_products %}
+                        <tr class="product_cell">
+                            <td id="name_tag">{{ product.name }}</td>
+                            <td>/</td>
+                            <td id="color_tag">{{ product.color }}</td>
+                            <td id="side_note_tag">{{ product.side_note }}</td>
+                            <td id="quantity_tag">${{ product.price }} X {{ product.quantity }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+                    <tr>
+                        <td colspan="4" style="text-align: right;border:none;">總值: </td>
+                        <td>${{ invoice.total_amount }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: right;border:none;">回贈: </td>
+                        <td>${{ invoice.discount }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: right;border:none;">訂金: </td>
+                        <td>${{ invoice.deposit }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: right;border:none;">尚欠: </td>
+                        <td>${{ invoice.remaining }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: right;border:none;">經銷人: </td>
+                        <td>{{ invoice.sales.sales_name }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="price_container">
+                <p id="search_additional_note_box">{{ invoice.additional_note }}</p>
+            </div>
+        </div>
+        <div class="backdrop" id="backdrop">
+          <div id="simple-draw">
+            <div id="draw-button-container">
+                <div id="draw_button_middle">
+                    <a href="javascript:void(0)" id="draw_clear_button">Clear</a>
+                </div>
+                <a href="javascript:void(0)" id="draw_close_button"></a>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% if error %}
+          <p style="padding: 10px; font-size: 30px;margin: 20px 0;">找不到訂單...</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

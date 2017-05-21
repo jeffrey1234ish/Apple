@@ -1,0 +1,56 @@
+#search_field {
+    font-size: 35px;
+    width: 45%;
+}
+#invoice_detail_container {
+  position: relative;
+    padding: 10px;
+}
+#invoice_detail_container.detail {
+    padding: 0;
+  border-radius: 0;
+}
+#invoice_detail_container #first_name_container {
+  height: inherit;
+  float: none;
+  display: block;
+  margin: 0;
+}
+#invoice_detail_container.detail #first_name_container {
+    padding: 10px;
+}
+#invoice_detail_container.detail #first_name_container span {
+}
+#invoice_detail_container #first_name_container span {
+  margin: 0;
+}
+#invoice_detail_container #first_name_container span#first_name {
+  display: inline-block;
+}
+#invoice_detail_container #first_name_container span.invoice_id {
+  font-size: 20px;
+  float: right;
+}
+#invoice_detail_container.detail #invoice_detail_inner_container {
+    padding: 0 10px 10px;
+}
+#invoice_detail_container #invoice_detail_inner_container p {
+  font-size: 20px;
+}
+#price_container {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+    display: block;
+}
+#price_container p.price_container_inline {
+    display: inline-block;
+    width: 45%;
+    margin: 5px 0 0;
+}
+#search_additional_note_box {
+    height: 100px;
+    width: 95%;
+    text-align: left;
+    padding: 5px;
+}

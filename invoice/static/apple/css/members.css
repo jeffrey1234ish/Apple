@@ -1,0 +1,10 @@
+.invoice-card-container {
+  height: 200px;
+  padding: 5px 0;
+}
+.invoice-card {
+  width: 150px;
+  height: 100%;
+  margin: 0 auto;
+  background: red;
+}

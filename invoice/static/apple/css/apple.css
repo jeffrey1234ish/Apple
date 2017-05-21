@@ -1,0 +1,127 @@
+section {
+  padding: 30px 0;
+  background-size: 500px 500px;
+}
+.seperator {
+  padding: 1px 0;
+  margin: 10px 20px;
+  background: #dddddd;
+}
+.top-section {
+}
+#color {
+  background-size: 500px 500px;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+}
+.color-container {
+    margin: 0 auto 20px;
+    border:none !important;
+    display: block;
+    position: relative;
+    background-size: 100% 100%;
+}
+.circle-button {
+  width: 80px;
+  height: 80px;
+  margin: 10px auto;
+  border: 4px solid white;
+  -webkit-box-shadow:  0px 3px 10px 0px rgba(0,0,0,0.49);
+  -moz-box-shadow:  0px 3px 10px 0px rgba(0,0,0,0.49);
+  box-shadow:  0px 3px 10px 0px rgba(0,0,0,0.49);
+
+  border-radius: 100px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  display: block;
+  position: relative;
+  background-size: 100% 100%;
+}
+.circle-button span {
+  text-align: center;
+  display: block;
+  border-radius: 100px;
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  font-size: 17px;
+}
+.color-description {
+  line-height: 80px;
+  font-size: 20px;
+}
+.color-container:hover {
+  -webkit-box-shadow:  none;
+  -moz-box-shadow:  none;
+  box-shadow:  none;
+  text-decoration: none;
+}
+.no-background {
+  background: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+.cherry {
+  background-image: url("../images/sickban/cherry.jpg");
+  color: #522a17;
+}
+.wooden_black {
+  background-image: url("../images/sickban/dark_oak.jpg");
+  color: white;
+}
+.wooden_white {
+  background-image: url("../images/sickban/wooden_white.jpg");
+  color: black;
+}
+.maple {
+  background-image: url("../images/sickban/maple.jpg");
+  color: #504139
+}
+.oak {
+  background-image: url("../images/sickban/oak.jpg");
+  color: #4e4638;
+}
+.light_walnut {
+  background-image: url("../images/sickban/walnut.jpg");
+  color: #e4a070;
+}
+.backdrop {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.3);
+  position: relative;
+  color: white;
+  -webkit-box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.75);
+}
+#top {
+  height: 250px;
+  background-image: url("../images/red_apple.png");
+  background-position: center;
+
+  background-size: 300px 300px;
+  background-repeat: no-repeat;
+  background-color: #b32e2e;
+}
+#top p {
+  font-size: 40px;
+  text-shadow: 0px 2px 2px rgba(0,0,0,.75);
+}
+.wood {
+  height: 200px;
+}
+@media (max-width: 767px) {
+  .color {
+    padding: 0 10px;
+  }
+}
+@media (min-width: 768px) {
+  .color {
+    padding: 0 30px;
+  }
+}

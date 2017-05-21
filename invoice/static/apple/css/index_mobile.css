@@ -1,0 +1,18 @@
+html, body, #top, .head-content {
+    height: inherit;
+}
+.navbar {
+    padding: 10px;
+}
+.colors {
+  margin: 0px 20px;
+}
+section.brand .container .row .col-lg-4:nth-child(odd) .colors-container .colors {
+  float:left;
+}
+section.brand .container .row .col-lg-4:nth-child(even) .colors-container .colors {
+  float:right;
+}
+#top {
+  background-size: auto;
+}

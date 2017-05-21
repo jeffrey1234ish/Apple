@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="傢俬, 紅蘋果傢俬專賣店, 蘋果傢俬店, 傢俬紅蘋果傢俬香港, 紅蘋果, 蘋果傢俬,  紅蘋果傢俬專門店, 紅蘋果傢俱, 紅蘋果傢具, 紅蘋果香港, 紅蘋果傢私, 金美夢床褥, sweet dream mattress, 訂造傢俬, 紅蘋果傢俬訂造, 芝華仕梳化, cheers sofa, ulfenbo, 歐化寶,sweet dream金美夢,royce mattress, 箂斯護,luxury dream, 睡康寧,斯林白蘭,slumberland, 實惠都有紅蘋果傢俬, E1環保板,紅蘋果傢俬床, 紅蘋果傢俱專門店, red apple furniture in hong kong本公司銷售紅蘋果傢俬,家居設計,訂造傢俱傢俬,兒童傢俬傢具,另有芝華仕梳化,金美夢床褥,餐椅">
+  <meta name="keywords" content="傢俬, 紅蘋果香港, 紅蘋果, 蘋果, 紅蘋果傢俬專賣店, 蘋果傢俬店, red apple 傢俬 紅蘋果傢俬香港, red apple furniture hong kong , red apple furniture hk, red apple furniture in hong kong 本公司銷售紅蘋果傢俬,家居設計,訂造傢俱傢俬,兒童傢俬傢具,另有芝華仕梳化,金美夢床褥,餐&#26545;餐椅,可代客訂造梳化沙發沙化地柜,組合床,床褥,ulfenbo歐化寶,sweet dream金美夢,royce mattress箂斯護,luxury dream 睡康寧,斯林白蘭slumberland特約經銷商">
+  {% load i18n %}
+  <title>{{ category_name }} | {% trans "蘋果傢俬"%}</title>
+  <!-- Bootstrap -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'common/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'apple/css/common.css' %}">
+  <link rel="stylesheet" href="{% static 'common/owlcarousel/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'common/owlcarousel/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'common/colorbox/colorbox.css' %}">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+</head>
+<body>
+<!-- HEADER -->
+<header id="top">
+  <div class="head-content">
+    <div class="center title-container">
+      <h1>{{ category_name }}</h1>
+    </div>
+  </div>
+</header>
+<!-- / HEADER -->
+
+<nav>
+  <div class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+      	<div class="navbar-header">
+           <div class="breadcrums">
+             <a href="/">{% trans "主頁"%}</a>
+             <span> / {{ category_name }}</span>
+           </div>
+      	</div>
+       </div>
+    </div>
+</nav>
+
+<section id="main-body">
+  <div class="container-full container">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <div style="padding: 5px;margin: 10px 0;">
+          <h2>「格」新</h2>
+          <h4>{% blocktrans %}蘋果傢俬為客人度身訂造傢俬，務求為您帶來一個舒適的家。如有需要，可向職員查詢{% endblocktrans %}</h4>
+          <h4><a href="" style="text-decoration:underline;color: black;padding: 5px;border-radius: 5px;background: white;text-shadow: none;">{% trans "聯絡我們"%}</a></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="album-container">
+    {% for path in paths%}
+    <div class="photo-container">
+      <a class="gallery" href="{{ path }}">
+        <img src="{{ path }}" style="width: 100%;"/>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!--  SECTION-1 -->
+
+
+<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>{% blocktrans %}Copyright © MyWebsite. All rights reserved.{% endblocktrans %}</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- / FOOTER -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="{% static 'common/jquery-3.1.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'common/parallax/parallax.js' %}"></script>
+<script type="text/javascript" src="{% static 'common/colorbox/jquery.colorbox-min.js' %}"></script>
+<script type="text/javascript" src="{% static 'apple/js/album.js' %}"></script>
+<script>
+  $(function() {
+    $('a.gallery').colorbox({rel:'gallery', maxWidth: "100%", maxHeight: "100%"});
+    setTimeout(resize, 1000);
+  });
+  $(window).resize(resize);
+</script>
+<script type="text/javascript" src="{% static 'common/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'common/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="傢俬, 紅蘋果傢俬專賣店, 蘋果傢俬店, 傢俬紅蘋果傢俬香港, 紅蘋果, 蘋果傢俬,  紅蘋果傢俬專門店, 紅蘋果傢俱, 紅蘋果傢具, 紅蘋果香港, 紅蘋果傢私, 金美夢床褥, sweet dream mattress, 訂造傢俬, 紅蘋果傢俬訂造, 芝華仕梳化, cheers sofa, ulfenbo, 歐化寶,sweet dream金美夢,royce mattress, 箂斯護,luxury dream, 睡康寧,斯林白蘭,slumberland, 實惠都有紅蘋果傢俬, E1環保板,紅蘋果傢俬床, 紅蘋果傢俱專門店, red apple furniture in hong kong本公司銷售紅蘋果傢俬,家居設計,訂造傢俱傢俬,兒童傢俬傢具,另有芝華仕梳化,金美夢床褥,餐椅">
+  <meta name="keywords" content="傢俬, 紅蘋果香港, 紅蘋果, 蘋果, 紅蘋果傢俬專賣店, 蘋果傢俬店, red apple 傢俬 紅蘋果傢俬香港, red apple furniture hong kong , red apple furniture hk, red apple furniture in hong kong 本公司銷售紅蘋果傢俬,家居設計,訂造傢俱傢俬,兒童傢俬傢具,另有芝華仕梳化,金美夢床褥,餐&#26545;餐椅,可代客訂造梳化沙發沙化地柜,組合床,床褥,ulfenbo歐化寶,sweet dream金美夢,royce mattress箂斯護,luxury dream 睡康寧,斯林白蘭slumberland特約經銷商">
+  {% load i18n %}
+  <title>{% trans "蘋果傢俬"%}</title>
+  <!-- Bootstrap -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'common/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'apple/css/common.css' %}">
+  <link rel="stylesheet" href="{% static 'apple/css/apple.css' %}">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  <script>
+    var currentColor = null;
+    function changeBackground(color){
+      $("#color").removeClass(currentColor);
+      $("#color").addClass(color);
+      $("a."+color).addClass("no-background");
+      $("a."+currentColor).removeClass("no-background");
+      currentColor = color;
+    }
+  </script>
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand navbar-center scroll_page" id="nav-brand" href="/"><span class="navbar-logo logo" /></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!-- <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a> </li>
+        <li><a href="#">Link</a> </li>
+      </ul> -->
+      <!-- <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form> -->
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="/apple">{% trans "紅蘋果"%}</a> </li>
+        <li><a href="/bedroom">{% trans "睡房系列"%}</a> </li>
+        <li><a href="/category/1">{% trans "衣櫃"%}</a> </li>
+        <li><a href="/category/3">{% trans "地櫃"%}</a> </li>
+        <li><a href="/category/2">{% trans "鞋櫃"%}</a> </li>
+        <!-- <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a> </li>
+            <li><a href="#">Another action</a> </li>
+            <li><a href="#">Something else here</a> </li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a> </li>
+          </ul>
+        </li> -->
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<!-- HEADER -->
+<header id="top">
+  <div class="backdrop">
+    <div class='center'>
+      <p>打造高品質傢俱</p>
+    </div>
+  </div>
+</header>
+
+<section id="plate" class="container wooden-white" style="background-size: 500px 500px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+      <h2>為什麼選擇紅蘋果?</h2>
+      <h4>紅蘋果採用高質板材，優質而耐用</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4  col-sm-offset-2">
+      <div>
+        <h3>中密度纖維板</h3>
+        <p><!--紅蘋果採用中密度纖維板，中纖板以木纖維為主要材料，通過纖維分離、成型、乾燥、高壓等工序制成。特點是內部有一天就有可能結構勻稱、
+      機械加工性能好、易於雕刻及鏤成各種型面、型狀的部件。-->紅蘋果傢俬採用的中纖板全部為游離甲醛釋放量逹到歐洲E－1級環保標準(<=9mg/100g)的優質板。<p>
+      </div>
+    </div>
+    <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+      <div class="seperator"></div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div>
+        <h3>實木</h3>
+        <p>除中纖板外，紅蘋果亦採用實木為傢俬板材。<!--實木即天然木材，一般需要經過裁切，烘乾等處理後才能被應用於傢具制造中。-->
+          紅蘋果主要採用歐洲及東南亞進口木材，擁有先進的烘烤設備，確保木材的性質穩定。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about-us">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><div class="seperator"></div></div>
+      <div class="col-xs-12 text-center">
+        <h2 style="margin: 5px 0;">紅蘋果的故事</h2>
+      </div>
+      <div class="col-xs-12"><div class="seperator"></div></div>
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2" >
+          <p style="font-size: 17px;">“紅蘋果”，絕對是大家熟悉的名字。1981年創立於香港，憑著針對香港家居生活品味的設計風格、優質原料及合理價錢，“紅蘋果”家具迅速在香港家具市場占一席位，更成為家喻戶曉的品牌。</p>
+          <p style="font-size: 17px;">由80年代開始，我們一直緊貼全球家居設計潮流，帶來最迎合香港居住環境需要的家具，深受廣大市民歡迎，連續保持香港銷量遙遙領先，現時香港几乎每幢大廈都有我們的產品！為了擴展全球業務，“紅蘋果”家具於1987年在深圳設立生產基地，發展至今已成為中國家具大型企業之一，在全國民用家具市場的占有率及品牌知名度均名列前茅。我們早於1993年發展全球市場，現時在美國、英國、西班牙、澳洲、中東、東南亞、俄羅斯、波蘭及東歐等六十多個國家和地區均有“紅蘋果”家具出售。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / HEADER -->
+
+<section id="color" class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h2>顏色</h2>
+    </div>
+    <div class="col-xs-4 col-sm-2  text-center jefade" data-jefade-delay="200">
+        <a href="javascript: changeBackground('maple')" class="circle-button color-container maple">
+          <div class="color-description">
+              <p>楓木</p>
+          </div>
+        </a>
+    </div>
+    <div class="col-xs-4 col-sm-2 text-center jefade" data-jefade-delay="400">
+        <a href="javascript: changeBackground('cherry')" class="circle-button color-container cherry">
+          <div class="color-description">
+              <p>紅櫻桃</p>
+          </div>
+        </a>
+
+    </div>
+    <div class="col-xs-4 col-sm-2 text-center jefade" data-jefade-delay="600">
+        <a href="javascript: changeBackground('wooden_black')" class="circle-button color-container wooden_black" >
+          <div class="color-description">
+            <p>黑橡</p>
+          </div>
+        </a>
+    </div>
+    <div class="col-xs-4 col-sm-2 text-center jefade" data-jefade-delay="800">
+        <a href="javascript: changeBackground('wooden_white')" class="circle-button color-container wooden_white">
+          <div class="color-description">
+            <p>白木紋</p>
+          </div>
+        </a>
+
+    </div>
+    <div class="col-xs-4 col-sm-2 text-center jefade" data-jefade-delay="1000">
+        <a href="javascript: changeBackground('oak')" class="circle-button color-container oak">
+          <div class="color-description">
+            <p>橡木</p>
+          </div>
+        </a>
+
+    </div>
+    <div class="col-xs-4 col-sm-2 text-center jefade" data-jefade-delay="1200">
+        <a href="javascript: changeBackground('light_walnut')" class="circle-button color-container light_walnut">
+          <div class="color-description">
+            <p>淺胡桃</p>
+          </div>
+        </a>
+
+    </div>
+  </div>
+</section>
+<!--  SECTION-1 -->
+
+
+<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>Copyright © MyWebsite. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="{% static 'common/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'common/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

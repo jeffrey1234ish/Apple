@@ -1,0 +1,121 @@
+/* 現成 part START */
+p {
+  font-size: 20px;
+}
+table, td, th {
+  border: none;
+  padding: 2px;
+}
+.product_cell p.quantity, p#side_note_tag {
+  display: block;
+}
+.product_cell p#name_tag {
+  font-weight: bold;
+}
+.product_cell a.product_cancel_button {
+    position: absolute;
+    height: 100%;
+    width: 50px;
+    right: 0;
+    top: 0;
+
+    background: url('../common/delete.png');
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#invoice_detail_container #first_name_container {
+  height: inherit;
+  margin: 0 10px;
+  float: left;
+  display: inline;
+  padding: 5px 0;
+}
+#invoice_detail_container #first_name_container span {
+  margin: 10px 5px;
+}
+#invoice_detail_container #first_name_container span.invoice_id {
+  font-size: 20px;
+}
+#invoice_detail_container #invoice_input_container{
+  display:flex;
+}
+#invoice_detail_container #invoice_detail_inner_container {
+  padding: 15px;
+  flex: 1 0 auto;
+}
+#invoice_detail_container #invoice_detail_inner_container p {
+  font-size: 20px;
+  margin: 0 0 5px 0;
+  display: flex;
+}
+#invoice_detail_container #invoice_detail_inner_container p span {
+  line-height: 50px;
+}
+#invoice_detail_container #invoice_detail_inner_container p input {
+  flex: 1 1 auto;
+}
+#edit_price_container {
+  flex: 1 0 auto;
+  display: flex;
+}
+#edit_price_container p {
+    margin: 5px 0;
+    flex: 1 0 auto;
+    display: flex;
+    line-height: 50px;
+}
+#edit_price_container p span {
+    flex: 0 1 auto;
+}
+#edit_price_container p input[type="number"]{
+    margin: 5px;
+    flex: 1 0 auto;
+}
+#price_container {
+  text-align: right;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+}
+#price_container p {
+  padding: 5px 10px;
+}
+input {
+  font-size: 25px;
+}
+#invoice_detail_inner_container input[type=text] {
+  width: 400px
+}
+input[type=number] {
+  width: 120px;
+}
+input#first_name {
+    margin: 10px 5px 0;
+    width: 80px;
+}
+#search_string_text_box {
+    border: medium none;
+    height: 45px;
+    padding: 0 5px;
+    width: 50%;
+    background: #DDDDDD;
+    margin: 10px;
+
+    border-radius: 10px;
+}
+#submit_search_button {
+    border: medium none;
+    color: #EEEEEE;
+    background-color: #333333;
+    cursor: pointer;
+    height: 45px;
+    padding: 5px;
+    text-transform:uppercase;
+
+    float: right;
+    margin: 10px 5px;
+}
+input[type="text"][name="address"] {
+    margin-left: 10px;
+}

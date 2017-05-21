@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>蘋果傢俬</title>
+  <!-- Bootstrap -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'common/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'apple/css/common.css' %}">
+  <link rel="stylesheet" href="{% static 'apple/css/members.css' %}">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  <script>
+    var currentColor = null;
+    function changeBackground(color){
+      $("#color").removeClass(currentColor);
+      $("#color").addClass(color);
+      $("a."+color).addClass("no-background");
+      $("a."+currentColor).removeClass("no-background");
+      currentColor = color;
+    }
+  </script>
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand navbar-center scroll_page" id="nav-brand" href="/"><span class="navbar-logo logo" /></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<section class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2>你的訂單</h2>
+    </div>
+  </div>
+  <div class="row">
+    {% for invoice in invoices %}
+    <div class="col-xs-6 col-sm-6 col-md-4 invoice-card-container">
+      <div class="invoice-card">
+
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>Copyright © MyWebsite. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="{% static 'common/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'common/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
