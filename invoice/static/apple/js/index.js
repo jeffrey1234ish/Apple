@@ -1,7 +1,9 @@
 /**
  * Created by chnigkiuchan on 13/1/2017.
  */
-
+function resize() {
+  $(".large-container").css("height", $(".wrapper").outerHeight());
+}
 var main = (function() {
     var x, y;
     var startBackground = function(index) {
@@ -173,6 +175,8 @@ var main = (function() {
               $("#top .head-content .container-fluid .row").removeClass("row-right");
             }
             var onresize = function() {
+              $(".verticle-container").height($(".wrapper").outerHeight()*2)
+              $(".large-container").height($(".wrapper").outerHeight());
               var width = $(window).width();
               var height = $(window).height();
               var aspect_ratio = width / height;
