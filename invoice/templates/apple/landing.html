@@ -35,9 +35,20 @@
     #apple {
       background-image: url("{% static 'apple/images/sickban/oak.jpg' %}");
       background-size: 100% 100%;
+      position: absolute;
+      transition: all .3s ease;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+
+      clip-path: inset(0 66.666666% 75% 0);
+      -webkit-clip-path: inset(0 66.666666% 75% 0);
       z-index: 100;
     }
-    #apple > .wrapper > a{
+    .apple-active {
+      clip-path: inset(0 0 0 0) !important;
+      -webkit-clip-path: inset(0 0 0 0) !important;
+    }
+    #apple_logo {
       display:block;
       width: 100%;
       height: 100%;
@@ -49,7 +60,7 @@
     #wooden_white {
       background-image: url("{% static 'apple/images/sickban/wooden_white.jpg' %}");
       background-size: 100% 100%;
-      z-index: 100;
+      z-index: 1;
     }
     #wooden-white-content {
       background-image: url("{% static 'apple/images/sickban/wooden_white.jpg' %}");
@@ -185,12 +196,20 @@
 </script>
   <section id="main-container" class="container-fluid" style="padding: 0;">
      <div class="row no-gutters">
-       <div class="col-xs-6 col-sm-4 grid animated bounceInLeft" id="apple">
-         <div class="wrapper">
-           <a href="/"></a>
+       <div class="row no-gutters" style="position: relative;">
+         <div class="col-xs-12 grid hidden-xs" id="apple">
+           <div class="xl-container container">
+             <div class="row no-gutters">
+               <div class="col-sm-4">
+                 <div class="wrapper">
+                   <div id="apple_logo"></div>
+                 </div>
+               </div>
+             </div>
+           </div>
          </div>
        </div>
-       <div class="col-xs-6 col-sm-4 grid" id="wooden_white">
+       <div class="col-xs-6 col-sm-offset-4 col-sm-4 grid" id="wooden_white">
          <div class="wrapper">
            <div></div>
          </div>
@@ -204,7 +223,14 @@
          <div class="col-xs-12 grid hidden-xs" id="new">
            <div class="large-container container">
              <div class="row no-gutters">
-               <div class="col-sm-offset-8 col-xs-6 col-sm-4 bounce animated infinite" id="new_logo">
+               <div class="col-sm-8">
+                 <div class="half-wrapper">
+                   <div style="padding: 30px;">
+                     <p>hahahah fuck fuck fuck</p>
+                   </div>
+                 </div>
+               </div>
+               <div class="col-sm-4 bounce animated infinite" id="new_logo">
                  <div class="wrapper">
                    <div></div>
                  </div>
@@ -214,10 +240,6 @@
          </div>
        </div>
        <div class="col-xs-12" id="wooden-white-content" style="display: none;">
-         <div class="large-container">
-         </div>
-       </div>
-       <div class="col-xs-12" id="new-content" style="display: none;">
          <div class="large-container">
          </div>
        </div>
@@ -286,7 +308,9 @@
   $(function() {
     resize();
     $(window).resize(resize);
-
+    $("#apple").click(function() {
+      $("#apple").toggleClass("apple-active");
+    });
     $("#new").click(function() {
       $("#new").toggleClass("new-active");
     });

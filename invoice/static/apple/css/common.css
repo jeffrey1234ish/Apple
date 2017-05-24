@@ -34,16 +34,22 @@ a:focus {
   padding-top: 100% !important; /* 1:1 Aspect Ratio */
   position: relative; /* If you want text inside of it */
 }
-.half-wrapper > *, .wrapper > *, .verticle-container > *, .large-container > * {
+.half-wrapper > *, .wrapper > *, .verticle-container > *, .large-container > * ,.xl-container > * {
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
 }
+
 .large-container {
   width: 100% !important;
   padding-top:   33.33333333% !important; /* 1:1 Aspect Ratio */
+  position: relative;
+}
+.xl-container {
+  width: 100% !important;
+  padding-top:   133.33333333% !important; /* 1:1 Aspect Ratio */
   position: relative;
 }
 .verticle-container {
