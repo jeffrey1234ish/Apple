@@ -308,8 +308,12 @@ background: #ae322f;
 }
 .grid {
   overflow: hidden;
-  border: 1px solid white;
-  background: #cc3b3b;
+}
+.category-container:nth-child(even) {
+  background: #7bccc7;
+}
+.category-container:nth-child(odd) {
+  background: #df3e31;
 }
 .cube-activate {
 	-webkit-transform: translateY(-100%);

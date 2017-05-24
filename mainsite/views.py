@@ -22,6 +22,9 @@ def index(request):
 
     return render(request, 'apple/index.html',{"facebook_count": r['fan_count'], "categorys": ProductCategory.objects.all()})
 
+def landing(request):
+    return render(request, 'apple/landing.html', {})
+
 def tinyuen(request):
     splitPath = "invoice"
     paths = glob.glob(finders.find("apple/images/tinyuen")+"/*.*")

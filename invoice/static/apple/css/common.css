@@ -1,6 +1,3 @@
-html, body {
-  height:100%;
-}
 body {
   font-family: "Microsoft Yahei","Hiragino Sans GB",sans-serif;
 }
@@ -37,12 +34,22 @@ a:focus {
   padding-top: 100% !important; /* 1:1 Aspect Ratio */
   position: relative; /* If you want text inside of it */
 }
-.half-wrapper > *, .wrapper > * {
+.half-wrapper > *, .wrapper > *, .verticle-container > *, .large-container > * {
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+}
+.large-container {
+  width: 100% !important;
+  padding-top:   33.33333333% !important; /* 1:1 Aspect Ratio */
+  position: relative;
+}
+.verticle-container {
+  width: 100% !important;
+  padding-top: 200% !important; /* 1:1 Aspect Ratio */
+  position: relative;
 }
 .navbar-logo {
   width: 40px;

@@ -5,6 +5,7 @@ from . import views
 app_name = 'mainsite'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'landing/$', views.landing, name='landing'),
     url(r'^apple/$', views.apple, name='apple'),
     url(r'^tinyuen/$', views.tinyuen, name='tinyuen'),
     url(r'^bedroom/$', views.bedroom, name='bedroom'),
