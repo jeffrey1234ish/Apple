@@ -116,7 +116,10 @@ var main = (function() {
 
              // red-apple start
             }
-            $(window).bind('scroll', onscroll);
+            var heroscroll = function() {
+
+            }
+            $(window).bind('scroll', heroscroll);
             startBackground(1);
 
             var flip_cube = function(ele) {
