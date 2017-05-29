@@ -31,6 +31,17 @@ ADMINS = [("Jeffrey Chan", "jeffrey1234ish@gmail.com")]
 
 # Application definition
 
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': not DEBUG,
+        'BUNDLE_DIR_NAME': 'assets/dist/', # must end with slash
+        'STATS_FILE': os.path.join(BASE_DIR, 'invoice/static/webpack-stats.json'),
+        'POLL_INTERVAL': 0.1,
+        'TIMEOUT': None,
+        'IGNORE': ['.+\.hot-update.js', '.+\.map']
+    }
+}
+
 INSTALLED_APPS = [
     'grappelli',
     'modeltranslation',
@@ -43,7 +54,7 @@ INSTALLED_APPS = [
     'invoice.apps.InvoiceConfig',
     'mainsite.apps.MainsiteConfig',
     'mainsite.templatetags.site_extra',
-    'axes',
+    'webpack_loader',
 ]
 
 PRIVATE_STORAGE_ROOT = '/private/'
@@ -81,7 +92,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Apple.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases

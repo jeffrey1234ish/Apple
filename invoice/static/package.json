@@ -1,0 +1,20 @@
+{
+  "name": "mainsite",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "webpack": "^2.6.1"
+  },
+  "devDependencies": {
+    "gsap": "^1.19.1",
+    "jquery": "^3.2.1",
+    "webpack-bundle-tracker": "^0.2.0"
+  },
+  "scripts": {
+    "dev": "webpack -d --watch",
+    "prod": "webpack -p"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

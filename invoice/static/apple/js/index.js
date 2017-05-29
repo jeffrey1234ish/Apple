@@ -119,7 +119,7 @@ var main = (function() {
             var heroscroll = function() {
 
             }
-            $(window).bind('scroll', heroscroll);
+            $(window).bind('scroll', onscroll);
             startBackground(1);
 
             var flip_cube = function(ele) {
@@ -178,8 +178,6 @@ var main = (function() {
               $("#top .head-content .container-fluid .row").removeClass("row-right");
             }
             var onresize = function() {
-              $(".verticle-container").height($(".wrapper").outerHeight()*2)
-              $(".large-container").height($(".wrapper").outerHeight());
               var width = $(window).width();
               var height = $(window).height();
               var aspect_ratio = width / height;

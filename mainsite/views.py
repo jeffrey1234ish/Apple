@@ -18,7 +18,11 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     access_token = "1853852278166289|6j122rY62PMpPi1esN_-jgMwAQc"
-    r = json.loads(urllib2.urlopen("https://graph.facebook.com/applefurniturehk/?fields=fan_count&access_token=" + access_token).read())
+
+    try:
+        r = json.loads(urllib2.urlopen("https://graph.facebook.com/applefurniturehk/?fields=fan_count&access_token=" + access_token).read())
+    except URLError:
+        return render(request, 'apple/index.html',{})
 
     return render(request, 'apple/index.html',{"facebook_count": r['fan_count'], "categorys": ProductCategory.objects.all()})
 
